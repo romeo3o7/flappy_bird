@@ -2,7 +2,7 @@ const gameHeight = window.innerHeight - 50;
 
 const player = document.getElementById('player');
 const player_position = player.getBoundingClientRect();
-let player_y = player_position.top;
+let player_y = window.innerWidth / 2;
 
 const player_jump = 5.7;
 let v = 0;
@@ -25,7 +25,7 @@ player_y += v;
 if (player_y >= gameHeight) { v = 0; player_y = gameHeight; }
 
 obs_x -= obsSpeed;
-if (obs_x < -50 ) { obs_x = rest; }
+if (obs_x < -70 ) { obs_x = rest; }
 
 obs1.style.left = obs_x + 'px';
 obs2.style.left = obs_x + 'px';
@@ -61,12 +61,12 @@ function collison(a, b) {
 }
 
 function restGame() {
-player_y = 330;
-obs_x = ob1_position.left;
+player_y = window.innerWidth / 2;
+obs_x = window.innerWidth;
 v = 0;
 score = 0;
 document.getElementById("score").innerText = "score : " + score;
-notPassed = false;
+notPassed = true;
 obs1.style.left = obs_x + 'px';
 obs2.style.left = obs_x + 'px';
 player.style.top = player_y + 'px';
